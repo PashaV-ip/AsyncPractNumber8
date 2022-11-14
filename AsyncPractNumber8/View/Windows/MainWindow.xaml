@@ -1,0 +1,36 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AsyncPractNumber8"
+        xmlns:ViewModel="clr-namespace:AsyncPractNumber8.ViewModel" x:Class="AsyncPractNumber8.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <ViewModel:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.ColumnSpan="3" 
+                   Text="Введите данные:" 
+                   FontSize="30" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Bottom"/>
+        <TextBlock Grid.Row="1" Text="Введите логин: " FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Teacher.Login}" FontSize="25" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0, 0, 30, 0"/>
+        <TextBlock Grid.Row="2" Text="Введите имя: " FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Teacher.FirstName}" FontSize="25" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0, 0, 30, 0"/>
+        <Button Grid.Column="1" Grid.Row="3" Command="{Binding EqualsLINQCommand}" Content="Проверить" FontSize="25" Margin="20"/>
+    </Grid>
+</Window>
